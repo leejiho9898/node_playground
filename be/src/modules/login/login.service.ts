@@ -1,9 +1,10 @@
 import { Injectable } from "@nestjs/common";
+import { LoginDto } from "./dto/login.dto";
 
 @Injectable()
 export class LoginService {
-  login(id: string, password: string): { success: boolean } {
-    if (id === "asd" && password === "asd") {
+  login(dto: LoginDto): { success: boolean } {
+    if (dto.id?.trim() === "asd" && dto.password?.trim() === "asd") {
       return { success: true };
     }
     return { success: false };

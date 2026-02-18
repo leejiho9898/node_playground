@@ -11,9 +11,9 @@ export async function signupAction(
   _prevState: SignupState,
   formData: FormData,
 ): Promise<SignupState> {
-  const id = (formData.get("id") as string) ?? "";
-  const password = (formData.get("password") as string) ?? "";
-  const email = (formData.get("email") as string) ?? "";
+  const id = ((formData.get("id") as string) ?? "").trim();
+  const password = ((formData.get("password") as string) ?? "").trim();
+  const email = ((formData.get("email") as string) ?? "").trim();
 
   try {
     const data = await signupApi({ id, password, email });

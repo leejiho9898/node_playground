@@ -7,13 +7,12 @@ export type LoginState = {
 
 type LoginResponse = { success: boolean };
 
-/** 클라이언트에서 실행. Nest로 { id, password } JSON만 전송 */
 export async function loginAction(
   _prevState: LoginState,
   formData: FormData,
 ): Promise<LoginState> {
-  const id = (formData.get("id") as string) ?? "";
-  const password = (formData.get("password") as string) ?? "";
+  const id = ((formData.get("id") as string) ?? "").trim();
+  const password = ((formData.get("password") as string) ?? "").trim();
 
   try {
     const data = await apiClient.post<LoginResponse>("/login", {
