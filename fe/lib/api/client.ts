@@ -1,5 +1,4 @@
-const BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
 const DEFAULT_OPTIONS: RequestInit = {
   headers: {
@@ -45,7 +44,11 @@ export const apiClient = {
     return handleResponse<T>(res);
   },
 
-  async post<T>(path: string, body?: unknown, options?: RequestInit): Promise<T> {
+  async post<T>(
+    path: string,
+    body?: unknown,
+    options?: RequestInit,
+  ): Promise<T> {
     const res = await fetch(`${BASE_URL}${path}`, {
       ...DEFAULT_OPTIONS,
       ...options,
@@ -56,7 +59,11 @@ export const apiClient = {
     return handleResponse<T>(res);
   },
 
-  async put<T>(path: string, body?: unknown, options?: RequestInit): Promise<T> {
+  async put<T>(
+    path: string,
+    body?: unknown,
+    options?: RequestInit,
+  ): Promise<T> {
     const res = await fetch(`${BASE_URL}${path}`, {
       ...DEFAULT_OPTIONS,
       ...options,
@@ -67,7 +74,11 @@ export const apiClient = {
     return handleResponse<T>(res);
   },
 
-  async patch<T>(path: string, body?: unknown, options?: RequestInit): Promise<T> {
+  async patch<T>(
+    path: string,
+    body?: unknown,
+    options?: RequestInit,
+  ): Promise<T> {
     const res = await fetch(`${BASE_URL}${path}`, {
       ...DEFAULT_OPTIONS,
       ...options,

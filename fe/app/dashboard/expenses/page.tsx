@@ -5,7 +5,9 @@ export default function ExpensesPage() {
       <div className="rounded-2xl bg-white p-6 shadow-sm">
         <p className="text-slate-600">지출 내역이 여기에 표시됩니다.</p>
         <ul className="mt-4 divide-y divide-slate-100">
-          <li className="py-3 text-sm text-slate-500">등록된 지출이 없습니다.</li>
+          <li className="py-3 text-sm text-slate-500">
+            등록된 지출이 없습니다.
+          </li>
         </ul>
       </div>
     </div>
