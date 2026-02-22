@@ -18,8 +18,8 @@ type LoginResponse =
 
 function saveTokens(accessToken: string, refreshToken: string) {
   if (typeof window !== "undefined") {
-    localStorage.setItem("accessToken", accessToken);
-    localStorage.setItem("refreshToken", refreshToken);
+    localStorage.setItem("gagaebuAccessToken", accessToken);
+    localStorage.setItem("gagaebuRefreshToken", refreshToken);
   }
 }
 

@@ -11,20 +11,20 @@ const DEFAULT_OPTIONS: RequestInit = {
 const tokenStorage = {
   get(): { accessToken: string; refreshToken: string } | null {
     if (typeof window === "undefined") return null;
-    const accessToken = localStorage.getItem("accessToken");
-    const refreshToken = localStorage.getItem("refreshToken");
+    const accessToken = localStorage.getItem("gagaebuAccessToken");
+    const refreshToken = localStorage.getItem("gagaebuRefreshToken");
     if (!accessToken || !refreshToken) return null;
     return { accessToken, refreshToken };
   },
   set(tokens: { accessToken: string; refreshToken: string }) {
     if (typeof window === "undefined") return;
-    localStorage.setItem("accessToken", tokens.accessToken);
-    localStorage.setItem("refreshToken", tokens.refreshToken);
+    localStorage.setItem("gagaebuAccessToken", tokens.accessToken);
+    localStorage.setItem("gagaebuRefreshToken", tokens.refreshToken);
   },
   clear() {
     if (typeof window === "undefined") return;
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("gagaebuAccessToken");
+    localStorage.removeItem("gagaebuRefreshToken");
   },
 };
 
