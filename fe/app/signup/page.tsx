@@ -36,15 +36,15 @@ export default function SignupPage() {
           )}
           <div>
             <label
-              htmlFor="id"
+              htmlFor="username"
               className="mb-1 block text-sm font-medium text-slate-700"
             >
               아이디
             </label>
             <input
-              id="id"
+              id="username"
               type="text"
-              name="id"
+              name="username"
               autoComplete="username"
               required
               disabled={isPending}
@@ -68,24 +68,6 @@ export default function SignupPage() {
               disabled={isPending}
               className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-800 placeholder-slate-400 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none disabled:opacity-60"
               placeholder="비밀번호 입력"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="mb-1 block text-sm font-medium text-slate-700"
-            >
-              이메일
-            </label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              autoComplete="email"
-              required
-              disabled={isPending}
-              className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-800 placeholder-slate-400 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none disabled:opacity-60"
-              placeholder="이메일 입력"
             />
           </div>
           <button

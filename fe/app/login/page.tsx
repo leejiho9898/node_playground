@@ -36,15 +36,15 @@ export default function LoginPage() {
           )}
           <div>
             <label
-              htmlFor="id"
+              htmlFor="username"
               className="mb-1 block text-sm font-medium text-slate-700"
             >
               아이디
             </label>
             <input
-              id="id"
+              id="username"
               type="text"
-              name="id"
+              name="username"
               autoComplete="username"
               required
               disabled={isPending}

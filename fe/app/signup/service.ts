@@ -1,10 +1,8 @@
-const BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
 export type SignupPayload = {
-  id: string;
+  username: string;
   password: string;
-  email: string;
 };
 
 export type SignupResponse = { success: boolean };
@@ -13,7 +11,7 @@ export type SignupResponse = { success: boolean };
 export async function signupApi(
   payload: SignupPayload,
 ): Promise<SignupResponse> {
-  const res = await fetch(`${BASE_URL}/signup`, {
+  const res = await fetch(`${BASE_URL}/login/signup`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),

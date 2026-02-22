@@ -11,12 +11,12 @@ export async function loginAction(
   _prevState: LoginState,
   formData: FormData,
 ): Promise<LoginState> {
-  const id = ((formData.get("id") as string) ?? "").trim();
+  const username = ((formData.get("username") as string) ?? "").trim();
   const password = ((formData.get("password") as string) ?? "").trim();
 
   try {
     const data = await apiClient.post<LoginResponse>("/login", {
-      id,
+      username,
       password,
     });
     if (data.success) return { error: null, success: true };

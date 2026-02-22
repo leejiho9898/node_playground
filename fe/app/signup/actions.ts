@@ -11,12 +11,11 @@ export async function signupAction(
   _prevState: SignupState,
   formData: FormData,
 ): Promise<SignupState> {
-  const id = ((formData.get("id") as string) ?? "").trim();
+  const username = ((formData.get("username") as string) ?? "").trim();
   const password = ((formData.get("password") as string) ?? "").trim();
-  const email = ((formData.get("email") as string) ?? "").trim();
 
   try {
-    const data = await signupApi({ id, password, email });
+    const data = await signupApi({ username, password });
     if (data.success) return { error: null, success: true };
     return { error: "가입에 실패했습니다. 다시 시도해 주세요." };
   } catch {
