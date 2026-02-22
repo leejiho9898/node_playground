@@ -5,7 +5,23 @@ export type LoginState = {
   success?: boolean;
 };
 
-type LoginResponse = { success: boolean };
+type LoginSuccessResponse = {
+  success: true;
+  access_token: string;
+  refresh_token: string;
+  user: { id: number; username: string };
+};
+
+type LoginResponse =
+  | { success: false }
+  | LoginSuccessResponse;
+
+function saveTokens(accessToken: string, refreshToken: string) {
+  if (typeof window !== "undefined") {
+    localStorage.setItem("accessToken", accessToken);
+    localStorage.setItem("refreshToken", refreshToken);
+  }
+}
 
 export async function loginAction(
   _prevState: LoginState,
@@ -19,7 +35,10 @@ export async function loginAction(
       username,
       password,
     });
-    if (data.success) return { error: null, success: true };
+    if (data.success && "access_token" in data && "refresh_token" in data) {
+      saveTokens(data.access_token, data.refresh_token);
+      return { error: null, success: true };
+    }
     return { error: "아이디 또는 비밀번호를 확인해 주세요." };
   } catch {
     return {
