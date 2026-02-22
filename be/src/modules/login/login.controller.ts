@@ -24,8 +24,7 @@ export class LoginController {
 
   @Post("refresh")
   refresh(@Body() dto: RefreshDto) {
-    const token =
-      typeof dto.refresh_token === "string" ? dto.refresh_token.trim() : "";
+    const token = dto?.refresh_token;
     if (!token) throw new UnauthorizedException("refresh_token이 필요합니다.");
     return this.loginService.refresh(token);
   }
@@ -39,9 +38,10 @@ export class LoginController {
 
   @Post("logout")
   async logout(@Body() dto: RefreshDto) {
-    const token =
-      typeof dto.refresh_token === "string" ? dto.refresh_token.trim() : "";
-    if (token) await this.loginService.logout(token);
+    const token = dto?.refresh_token;
+    if (token) {
+      await this.loginService.logout(token);
+    }
     return {};
   }
 
